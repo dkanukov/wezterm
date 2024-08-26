@@ -57,6 +57,16 @@ config.keys = {
 		mods = "SUPER",
 		action = wezterm.action.CloseCurrentPane({ confirm = false }),
 	},
+	{
+		key = "LeftArrow",
+		mods = "SHIFT|CTRL",
+		action = wezterm.action.MoveTabRelative(-1)
+	},
+	{
+		key = "RightArrow",
+		mods = "SHIFT|CTRL",
+		action = wezterm.action.MoveTabRelative(1)
+	}
 }
 
 return config
