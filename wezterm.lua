@@ -16,6 +16,8 @@ config.font_size = 15
 
 config.use_fancy_tab_bar = false
 
+config.window_decorations = "RESIZE"
+
 config.keys = {
 	{
 		key = "d",
@@ -26,11 +28,6 @@ config.keys = {
 		key = "d",
 		mods = "SHIFT|SUPER",
 		action = wezterm.action.SplitVertical,
-	},
-	{
-		key = "f",
-		mods = "SUPER|CTRL",
-		action = wezterm.action.ToggleFullScreen,
 	},
 	{
 		key = "h",
