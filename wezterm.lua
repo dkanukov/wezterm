@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
-config.window_background_image = "/Users/dkanukov/.config/wezterm/img/114753344_p0.png"
+config.window_background_image = "/Users/dmkanukov/.config/wezterm/img/114753344_p0.png"
 config.window_background_image_hsb = {
 	brightness = 0.5,
 	hue = 1.0,
@@ -11,8 +11,8 @@ config.window_background_image_hsb = {
 
 config.color_scheme = "Gruvbox Dark (Gogh)"
 
-config.font = wezterm.font("FiraMono Nerd Font Mono", { weight = "Medium" })
-config.font_size = 15
+config.font = wezterm.font("FiraMono Nerd Font", { weight = "Medium" })
+config.font_size = 16
 
 config.use_fancy_tab_bar = false
 
@@ -57,13 +57,32 @@ config.keys = {
 	{
 		key = "LeftArrow",
 		mods = "SHIFT|CTRL",
-		action = wezterm.action.MoveTabRelative(-1)
+		action = wezterm.action.MoveTabRelative(-1),
 	},
 	{
 		key = "RightArrow",
 		mods = "SHIFT|CTRL",
-		action = wezterm.action.MoveTabRelative(1)
-	}
+		action = wezterm.action.MoveTabRelative(1),
+	},
 }
+
+local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
+bar.apply_to_config(config, {
+	position = "top",
+	separator = {
+		space = 1,
+		left_icon = false,
+		right_icon = "",
+		field_icon = wezterm.nerdfonts.indent_line,
+	},
+	modules = {
+		username = {
+			enabled = false,
+		},
+		hostname = {
+			enabled = false,
+		},
+	},
+})
 
 return config
